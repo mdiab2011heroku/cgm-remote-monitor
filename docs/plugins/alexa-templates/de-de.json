@@ -1,0 +1,244 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "night scout",
+            "intents": [
+                {
+                    "name": "NSStatus",
+                    "slots": [],
+                    "samples": [
+                        "wie mein aktueller Status ist",
+                        "Wie ist mein aktueller Status",
+                        "wie meine aktuellen Werte sind",
+                        "wie mein Blutzuckerstatus ist"
+                    ]
+                },
+                {
+                    "name": "LastLoop",
+                    "slots": [],
+                    "samples": [
+                        "Wann war mein letzter Loop"
+                    ]
+                },
+                {
+                    "name": "MetricNow",
+                    "slots": [
+                        {
+                            "name": "metric",
+                            "type": "LIST_OF_METRICS",
+                            "samples": [
+                                "welchen {metric} ich habe",
+                                "wie hoch mein {metric} ist",
+                                "mein {metric}",
+                                "welchen {metric}",
+                                "wie viel {metric}",
+                                "wie viel {metric} ich habe",
+                                "welchen {metric} hat {pwd}",
+                                "wie viel {metric} hat {pwd}",
+                                "wie mein {metric} ist",
+                                "wie {pwd} {metric} ist",
+                                "{pwd} {metric}",
+                                "{metric}"
+                            ]
+                        },
+                        {
+                            "name": "pwd",
+                            "type": "AMAZON.DE_FIRST_NAME"
+                        }
+                    ],
+                    "samples": [
+                        "wie ist das {metric}",
+                        "wie ist die {metric}",
+                        "wie ist der {metric}",
+                        "welchen {metric} {pwd} hat",
+                        "wieviel {metric} ist",
+                        "welchen {metric} ich habe",
+                        "wie hoch mein {metric} ist",
+                        "wieviel {metric} noch übrig ist",
+                        "wie {pwd} {metric} ist",
+                        "wieviel {metric} {pwd} hat",
+                        "wieviel {metric} habe ich",
+                        "wieviel {metric} ich habe",
+                        "wie mein {metric} ist",
+                        "wieviel {metric}",
+                        "wie ist {pwd} {metric}",
+                        "wieviel {metric} ist übrig",
+                        "wie ist mein {metric}",
+                        "wie ist {metric}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_METRICS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "uploader battery",
+                                "synonyms": [
+                                    "verbleibender Uploaderakku",
+                                    "Uploaderakku verbleibend",
+                                    "Uploaderbatterie verbleibend",
+                                    "Uploaderakkukapazität",
+                                    "Uploaderbatteriekapazität",
+                                    "verbleibende Uploaderbatterie",
+                                    "Uploaderbatterie",
+                                    "Uploaderakku"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pump reservoir",
+                                "synonyms": [
+                                    "Insulin",
+                                    "Insulin in meiner Pumpe",
+                                    "Insulin übrig",
+                                    "Insulin noch übrig ist",
+                                    "Insulin verbleibend",
+                                    "restliches Insulin"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pump battery",
+                                "synonyms": [
+                                    "Restbatterie der Pumpe",
+                                    "Restakku der Pumpe",
+                                    "Pumpenakkukapazität",
+                                    "Pumpenbatteriekapazität",
+                                    "Pumpenakku",
+                                    "Pumpenbatterie"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "bg",
+                                "synonyms": [
+                                    "Wert",
+                                    "Blutzuckerwert",
+                                    "Blutglukose",
+                                    "Blutzucker"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "iob",
+                                "synonyms": [
+                                    "Insulin noch wirksam ist",
+                                    "Insulin aktiv",
+                                    "wirksames Insulin",
+                                    "Insulin wirksam"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "basal",
+                                "synonyms": [
+                                    "Basalwert",
+                                    "Basal",
+                                    "aktueller Basal",
+                                    "aktueller Basalwert"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "cob",
+                                "synonyms": [
+                                    "Kohlenhydrate wirksam",
+                                    "wirksame Kohlenhydrate",
+                                    "Kohlenhydrate"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "forecast",
+                                "synonyms": [
+                                    "Loop Prognose",
+                                    "Loop Vorhersage",
+                                    "ar2 Vorhersage",
+                                    "ar2 Prognose"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "raw bg",
+                                "synonyms": [
+                                    "roher Blutzucker",
+                                    "roher Blutzuckerwert",
+                                    "Rohwert"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "MetricNow",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "metric",
+                            "type": "LIST_OF_METRICS",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1421281086569.34001419564"
+                            }
+                        },
+                        {
+                            "name": "pwd",
+                            "type": "AMAZON.DE_FIRST_NAME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1421281086569.34001419564",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Welche Metrik suchen Sie?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Welchen Wert suchen Sie?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Welche Metrik möchten Sie wissen?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Welchen Wert möchten Sie wissen?"
+                    }
+                ]
+            }
+        ]
+    }
+}
